@@ -1,4 +1,4 @@
-import { router, useForm } from '@inertiajs/react';
+import { useForm } from '@inertiajs/react';
 
 export default function Edit({ booking }) {
     const { data, setData, put, errors } = useForm({
@@ -12,12 +12,6 @@ export default function Edit({ booking }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         put(`/booking/${booking.id}`);
-    };
-
-    const handleDelete = (b_id) => {
-        if (confirm('Are you sure you want to delete this product?')) {
-            router.delete(`/booking/${b_id}`);
-        }
     };
 
 
@@ -100,12 +94,7 @@ export default function Edit({ booking }) {
                     >
                         Save
                     </button>
-                    <button
-                        className="w-full rounded-lg bg-red-500 px-4 py-2 font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
-                        onClick={() => handleDelete(booking.id)}
-                    >
-                        Delete
-                    </button>
+
                 </form>
             </div>
         </div>
